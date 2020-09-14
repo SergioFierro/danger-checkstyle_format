@@ -1,1 +1,1 @@
-require "checkstyle_format/plugin"
+require "checkstyle_formatter/plugin"

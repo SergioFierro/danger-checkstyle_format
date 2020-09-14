@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'checkstyle_format/gem_version.rb'
+require 'checkstyle_formatter/gem_version.rb'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'danger-checkstyle_format'
-  spec.version       = CheckstyleFormat::VERSION
-  spec.authors       = ['noboru-i']
+  spec.name          = 'danger-checkstyle_formatter'
+  spec.version       = CheckstyleFormatter::VERSION
+  spec.authors       = ['noboru-i', 'Sergio Fierro']
   spec.email         = ['ishikura.noboru@gmail.com']
   spec.description   = %q{Danger plugin for checkstyle formatted xml file.}
   spec.summary       = %q{Danger plugin for checkstyle formatted xml file.}
-  spec.homepage      = 'https://github.com/noboru-i/danger-checkstyle_format'
+  spec.homepage      = 'https://github.com/SergioFierro/danger-checkstyle_format'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)

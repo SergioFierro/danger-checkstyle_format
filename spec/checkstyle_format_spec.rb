@@ -1,15 +1,15 @@
 require File.expand_path("../spec_helper", __FILE__)
 
 module Danger
-  describe Danger::DangerCheckstyleFormat do
+  describe Danger::DangerCheckstyleFormatter do
     it "should be a plugin" do
-      expect(Danger::DangerCheckstyleFormat.new(nil)).to be_a Danger::Plugin
+      expect(Danger::DangerCheckstyleFormatter.new(nil)).to be_a Danger::Plugin
     end
 
     describe "with Dangerfile" do
       before do
         @dangerfile = testing_dangerfile
-        @checkstyle_format = @dangerfile.checkstyle_format
+        @checkstyle_formatter = @dangerfile.checkstyle_formatter
       end
 
       describe ".send_inline_comment" do
@@ -18,17 +18,17 @@ module Danger
             CheckstyleError.new("XXX.java", 1, nil, "error", "test message1.", "source"),
             CheckstyleError.new("YYY.java", 2, nil, "error", "test message2.", "source")
           ]
-          @checkstyle_format.send(:send_inline_comment, errors)
-          expect(@checkstyle_format.status_report[:warnings]).to eq(["test message1.", "test message2."])
-          expect(@checkstyle_format.violation_report[:warnings][0]).to eq(Violation.new("test message1.", false, "XXX.java", 1))
-          expect(@checkstyle_format.violation_report[:warnings][1]).to eq(Violation.new("test message2.", false, "YYY.java", 2))
+          @checkstyle_formatter.send(:send_inline_comment, errors)
+          expect(@checkstyle_formatter.status_report[:warnings]).to eq(["test message1.", "test message2."])
+          expect(@checkstyle_formatter.violation_report[:warnings][0]).to eq(Violation.new("test message1.", false, "XXX.java", 1))
+          expect(@checkstyle_formatter.violation_report[:warnings][1]).to eq(Violation.new("test message2.", false, "YYY.java", 2))
         end
       end
 
       describe ".parse" do
         subject(:errors) do
-          @checkstyle_format.base_path = "/path/to"
-          @checkstyle_format.send(:parse, File.read("spec/fixtures/checkstyle.xml"))
+          @checkstyle_formatter.base_path = "/path/to"
+          @checkstyle_formatter.send(:parse, File.read("spec/fixtures/checkstyle.xml"))
         end
         it "have 4 items" do
           expect(errors.size).to be 4

@@ -1,12 +1,12 @@
 [![Build Status](https://travis-ci.org/noboru-i/danger-checkstyle_format.svg?branch=master)](https://travis-ci.org/noboru-i/danger-checkstyle_format)
 
-# danger-checkstyle_format
+# danger-checkstyle_formatter
 
 Danger plugin for checkstyle formatted xml file.
 
 ## Installation
 
-    $ gem install danger-checkstyle_format
+    $ gem install danger-checkstyle_formatter
 
 ## Usage
 

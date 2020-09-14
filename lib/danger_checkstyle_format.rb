@@ -1,1 +1,1 @@
-require "checkstyle_format/gem_version"
+require "checkstyle_formatter/gem_version"

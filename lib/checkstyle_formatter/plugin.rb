@@ -75,6 +75,9 @@ module Danger
       errors.each do |error|
         warn(error.message, file: error.file_name, line: error.line)
       end
+      if errors.size > 0
+        fail("Fix code convention problems")
+      end
     end
   end
 end
